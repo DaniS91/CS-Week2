@@ -94,6 +94,35 @@ Once we've completed all of the above functionality, we'll be ready to explore t
 * An algorithm for checking the reachability between two nodes.
 * An algorithm checking the shortest path between two nodes.
 
+## Stacks and Queues
+Stacks and queues are both data structures that hold a list of elements. However, there is a key difference in how they work. A queue is **first in, first out** or **FIFO**. On the other hand, a stack is **last in, first out** or **LIFO**.
+
+The technical term for each function is a **stack frame**: a stack frame is a memory management technique used in some programming languages for generating and eliminating temporary variables.
+
+And when it comes to queues, we are actually working with a queue every time we run async JavaScript code in the browser. The browser actually uses separate web APIs to run async code and when that async code is ready to run (such as when a response from an API is received), that code is actually put in a callback queue which is not the call stack. So our synchronous code is put on the call stack (LIFO) while our asynchronous code is queued up in the callback queue (FIFO).
+
+```js
+class Stack {
+  constructor() {
+    this.elements = [];
+  }
+
+  push(element) {
+    return this.elements.push(element);
+  }
+
+  pop() {
+    return this.elements.pop();
+  }
+}
+```
+
+## Depth and Breadth Search
+There are two ways we can search a tree — regardless of whether that's a binary search tree or a more general tree. We can take a **depth-first search (DFS)** approach or a **breadth-first search (BFS)** approach. If we are looking at a tree that has a root node and child nodes, a depth-first search algorithm will search a tree vertically while a breadth-first search algorithm will search a tree horizontally.
+
+## Depth-First Practice
+We'll start with the depth-first algorithm because it is a bit easier to implement. To actually use a TDD approach and test our algorithms in a graph, we are going to need to code that graph first. We will add this graph to our test file.
+
 ## License
 
 _MIT License_

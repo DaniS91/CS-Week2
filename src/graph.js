@@ -40,4 +40,30 @@ export default class Graph {
       this.adjacencyList.delete(name);
     }
   }
+
+  depthFirstReachable(startingNode, targetNode) {
+    if ((!this.adjacencyList.has(startingNode)) || (!this.adjacencyList.has(targetNode))) {
+      return false;
+    }
+    let stack = [startingNode];
+    let traversedNodes = new Set();
+    // Remember, hash table lookup is O(1) constant time — and a Set uses a hash table under the hood.
+    while (stack.length) {
+      const currentNode = stack.shift();
+      if (currentNode === targetNode) {
+        return true;
+      } else {
+        traversedNodes.add(currentNode);
+        const adjacencyList = this.adjacencyList.get(currentNode);
+        adjacencyList.forEach(function(node) {
+          if(!traversedNodes.has(node)) {
+            stack.unshift(node);
+          }
+        });
+      }
+    }
+    return false;
+  }
+
+
 }
