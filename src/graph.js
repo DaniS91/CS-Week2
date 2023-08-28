@@ -66,4 +66,27 @@ export default class Graph {
   }
 
 
+  // literally the only difference within the inner loop of this method is that we are using .push() instead of .unshift()
+  breadthFirstReachable(startingNode, targetNode) {
+    if ((!this.adjacencyList.has(startingNode)) || (!this.adjacencyList.has(targetNode))) {
+      return false;
+    }
+    let queue = [startingNode];
+    let traversedNodes = new Set();
+    while (queue.length) {
+      const currentNode = queue.shift();
+      if (currentNode === targetNode) {
+        return true;
+      } else {
+        traversedNodes.add(currentNode);
+        const adjacencyList = this.adjacencyList.get(currentNode);
+        adjacencyList.forEach(function(node) {
+          if (!traversedNodes.has(node)) {
+            queue.push(node);
+          }
+        });
+      }
+    }
+    return false;
+  }
 }
