@@ -25,6 +25,8 @@ A graph can also be **weighted** or **unweighted**. If a graph is weighted, its 
 
 * watch this [short video][gt video] on graph theory which provides a nice overview
 
+* read "Git Internals: Source Code Control and Beyond" by Scott Chacon, about Git and graph theory ([PDF][GitPDF])
+
 #### So how can we represent a graph as code?
 <img src="https://learnhowtoprogram.s3.us-west-2.amazonaws.com/computer-science-curriculum-2020/undirected_graph_planets.png">
 
@@ -79,8 +81,18 @@ const adjacencyMatrix = [
   [0, 0, 1, 1, 0],
 ];
 ```
+## Graph Project / Practice
+We'll build out a small TDD application to create a graph, including adding and removing nodes and edges.
 
+* Add people (nodes) to the social network. To keep it simple, they will only have a name property.
+* Add friendships between people (edges between nodes). These will be unweighted and undirected.
+* Remove nodes from the social network. Some people may want to revoke their accounts.
+* Remove edges from the social network. Sadly, some people may want to end their friendships.
 
+Once we've completed all of the above functionality, we'll be ready to explore two algorithms:
+
+* An algorithm for checking the reachability between two nodes.
+* An algorithm checking the shortest path between two nodes.
 
 ## License
 
@@ -92,3 +104,5 @@ Copyright (c) _8/20/2023_ _Dani Steely_
 [GT]: https://www.learnhowtoprogram.com/computer-science/graph-theory
 [TLAG]: http://think-like-a-git.net/sections/graph-theory.html
 [gt video]:https://www.youtube.com/watch?v=82zlRaRUsaY&ab_channel=SystemsInnovation
+[GitPDF]: https://github.com/pluralsight/git-internals-pdf/releases
+
